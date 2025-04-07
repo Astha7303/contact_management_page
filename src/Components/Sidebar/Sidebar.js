@@ -81,7 +81,7 @@ const Sidebar = ({ filter, onSelectContact }) => {
 
     try {
       const response = await axios.put(
-        `http://localhost:5000/contacts/${selectedContact.id}`,
+        `https://contact-management-page.onrender.com/contacts/${selectedContact.id}`,
         updatedContact
       );
       setContacts((prev) =>
@@ -121,7 +121,7 @@ const Sidebar = ({ filter, onSelectContact }) => {
 
   const fetchContacts = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/contacts');
+      const response = await axios.get('https://contact-management-page.onrender.com/contacts');
       setContacts(response.data);
       console.log("Fetched contacts:", response.data.length, response.data);
     } catch (error) {
@@ -138,7 +138,7 @@ const Sidebar = ({ filter, onSelectContact }) => {
     };
     try {
       await axios.put(
-        `http://localhost:5000/contacts/${selectedContact.id}`,
+        `https://contact-management-page.onrender.com/contacts/${selectedContact.id}`,
         updatedContact
       );
       setSelectedContact(updatedContact);
@@ -154,7 +154,7 @@ const Sidebar = ({ filter, onSelectContact }) => {
 
   const deleteItem = async (contactId) => {
     try {
-      await axios.delete(`http://localhost:5000/contacts/${contactId}`);
+      await axios.delete(`https://contact-management-page.onrender.com/contacts/${contactId}`);
       setContacts((prevContacts) => prevContacts.filter((c) => c.id !== contactId));
       if (selectedContact?.id === contactId) setSelectedContact(null);
     } catch (error) {
